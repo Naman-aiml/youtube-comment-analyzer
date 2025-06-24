@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import nltk
+import nltk.downloader
 from youtube_analyzer import get_video_id, get_youtube_comments, extract_keywords
 import matplotlib.pyplot as plt
 import csv # Required for the st.download_button functionality

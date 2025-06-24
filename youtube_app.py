@@ -6,13 +6,10 @@ import matplotlib.pyplot as plt
 import csv # Required for the st.download_button functionality
 
 
-# --- NLTK Data Download (for Streamlit Cloud deployment - Direct Approach) ---
-# This directly calls nltk.download. Streamlit will cache these downloads.
-# We remove the problematic 'try...except nltk.downloader.DownloadError'
-# as it seems to be causing an AttributeError on Streamlit Cloud.
-nltk.download('vader_lexicon')
-nltk.download('punkt')
-nltk.download('stopwords')
+# --- NLTK Data Download (for Streamlit Cloud deployment - Streamlit's recommended way) ---
+# This downloads NLTK data to Streamlit's cache directory (or app's packages folder)
+# ensuring it's available without LookupErrors.
+nltk.download('all') # Downloads all commonly used NLTK data. This should cover punkt, vader, and stopwords.
 # --- End NLTK Data Download ---
 
 # --- Streamlit App Configuration and Initial UI ---

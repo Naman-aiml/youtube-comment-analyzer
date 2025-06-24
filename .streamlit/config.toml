@@ -1,0 +1,19 @@
+[server]
+runOnSave = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[runner]
+magicEnabled = true
+install_pip_deps = true
+
+[logger]
+level = "info"
+
+[global]
+# This tells NLTK where to find its data when deployed on Streamlit Cloud
+data_directory = "/app/nltk_data"

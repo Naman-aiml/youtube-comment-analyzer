@@ -1,29 +1,18 @@
 import streamlit as st
 import os
-import nltk
-import nltk.downloader
+import nltk 
 from youtube_analyzer import get_video_id, get_youtube_comments, extract_keywords
 import matplotlib.pyplot as plt
 import csv # Required for the st.download_button functionality
 
-# --- NLTK Data Download (for Streamlit Cloud deployment) ---
-# This block ensures that the necessary NLTK data is available when the app runs in the cloud.
-# It attempts to find the data first; if not found (DownloadError), it downloads it.
-# This code runs only once when the Streamlit app starts up on the server.
-try:
-    nltk.data.find('sentiment/vader_lexicon.zip')
-except nltk.downloader.DownloadError:
-    nltk.download('vader_lexicon')
 
-try:
-    nltk.data.find('tokenizers/punkt.zip')
-except nltk.downloader.DownloadError:
-    nltk.download('punkt')
-
-try:
-    nltk.data.find('corpora/stopwords.zip')
-except nltk.downloader.DownloadError:
-    nltk.download('stopwords')
+# --- NLTK Data Download (for Streamlit Cloud deployment - Direct Approach) ---
+# This directly calls nltk.download. Streamlit will cache these downloads.
+# We remove the problematic 'try...except nltk.downloader.DownloadError'
+# as it seems to be causing an AttributeError on Streamlit Cloud.
+nltk.download('vader_lexicon')
+nltk.download('punkt')
+nltk.download('stopwords')
 # --- End NLTK Data Download ---
 
 # --- Streamlit App Configuration and Initial UI ---

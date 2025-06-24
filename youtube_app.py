@@ -17,7 +17,7 @@ nltk.download('stopwords')
 
 # --- Streamlit App Configuration and Initial UI ---
 # Set page configuration for the Streamlit app. This should be at the top level.
-st.set_page_config(page_title="YouTube Comment Analyzer", layout="centered", icon="📺")
+st.set_page_config(page_title="YouTube Comment Analyzer", layout="centered")
 
 # Main title and description for the application
 st.title("YouTube Comment Analyzer")

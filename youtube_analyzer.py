@@ -14,7 +14,7 @@ def get_video_id(url):
     match = re.search(r'(?:v=|\/)([a-zA-Z0-9_-]{11})(?:&|\?)?', url)
     return match.group(1) if match else None
 
-def get_youtube_comments(video_url, api_key, max_comments=1500):
+def get_youtube_comments(video_url, api_key, max_comments=10000):
     """
     Fetches comments for a given YouTube video URL, performs sentiment analysis
     on each comment, and returns a list of dictionaries with comment details
@@ -48,7 +48,7 @@ def get_youtube_comments(video_url, api_key, max_comments=1500):
                 part="snippet", 
                 videoId=video_id,
                 textFormat="plainText", 
-                maxResults=min(1500, max_comments - comments_fetched_count),
+                maxResults=min(10000, max_comments - comments_fetched_count),
                 pageToken=next_page_token 
             )
             response = request.execute() # Execute the API request
@@ -191,7 +191,7 @@ if __name__ == "__main__":
 
             # --- Keyword/Topic Extraction Summary ---
             # Extract top keywords from all fetched comments
-            top_keywords = extract_keywords(fetched_comments, num_keywords=15) # Get top 15 keywords
+            top_keywords = extract_keywords(fetched_comments, num_keywords=10) # Get top 15 keywords
             print("\n--- Top Keywords/Topics ---")
             if top_keywords:
                 for keyword, count in top_keywords:

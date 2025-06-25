@@ -1,3 +1,5 @@
+# .streamlit/config.toml
+
 [server]
 runOnSave = true
 
@@ -15,5 +17,18 @@ install_pip_deps = true
 level = "info"
 
 [global]
-# This tells NLTK where to find its data when deployed on Streamlit Cloud
 data_directory = "/app/nltk_data"
+
+[theme]
+# This base adjusts the overall light/dark mode. "light" is needed for cream.
+base = "light"
+# Primary accent color (for buttons, sliders, etc.)
+primaryColor = "#4CAF50" # A shade of green
+# Background color for the main content area (light cream)
+backgroundColor = "#FDFBF7"
+# Background color for elements like sidebars (though we're removing it) or secondary containers
+secondaryBackgroundColor = "#F0F2F6"
+# Color of most text
+textColor = "#262730"
+# Font for the app
+font = "sans serif" # Or "serif", "monospace"

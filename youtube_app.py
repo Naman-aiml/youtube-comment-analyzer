@@ -1,19 +1,16 @@
+# jo bhi import karna hai, woh sab yahan karenge
 import streamlit as st
 import os
 import nltk 
 from youtube_analyzer import get_video_id, get_youtube_comments, extract_keywords
 import matplotlib.pyplot as plt
-import csv # Required for the st.download_button functionality
+import csv 
 
-
-# --- NLTK Data Download (for Streamlit Cloud deployment - Streamlit's recommended way) ---
-# This downloads NLTK data to Streamlit's cache directory (or app's packages folder)
-# ensuring it's available without LookupErrors.
-nltk.download('all') # Downloads all commonly used NLTK data. This should cover punkt, vader, and stopwords.
-# --- End NLTK Data Download ---
-
+# Downloads all commonly used NLTK data. This should cover punkt, vader, and stopwords.
+nltk.download('all') 
+# Ensure that the NLTK data is downloaded before running the app.
 # --- Streamlit App Configuration and Initial UI ---
-# Set page configuration for the Streamlit app. This should be at the top level.
+# NOW set page configuration for the Streamlit app
 st.set_page_config(page_title="YouTube Comment Analyzer", layout="centered")
 
 # Main title and description for the application
@@ -21,7 +18,6 @@ st.title("YouTube Comment Analyzer")
 st.write("Enter a YouTube video URL to analyze its comments for sentiment and keywords. This app fetches up to 100 comments.")
 
 # --- User Input Section ---
-# Text input field for the YouTube video URL. A unique 'key' is crucial for Streamlit widgets.
 video_url = st.text_input("YouTube Video URL:", help="Paste the full YouTube video link here.", key="youtube_url_input")
 
 # Button to trigger the analysis. A unique 'key' is also required for buttons.
